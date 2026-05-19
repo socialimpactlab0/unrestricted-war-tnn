@@ -8,7 +8,7 @@
   <meta name="description" content="《超限戰》台南場次即將公布。留下聯絡方式，場次出來第一時間通知您。" />
 
   <meta property="og:title" content="《超限戰》台南場次通知" />
-  <meta property="og:description" content="病毒危機後，真正的戰爭才開始。一個家庭的逃亡，一場沒有槍聲的全球戰爭。" />
+  <meta property="og:description" content="台南場次即將公布，留下聯絡方式，場次出來第一時間通知您。" />
   <meta property="og:image" content="fb-ad.png" />
   <meta property="og:type" content="website" />
 
@@ -17,8 +17,8 @@
   <style>
     body {
       background:
-        radial-gradient(circle at top right, rgba(0, 110, 180, 0.32), transparent 34%),
-        linear-gradient(180deg, #020617 0%, #07111f 55%, #020617 100%);
+        radial-gradient(circle at top right, rgba(0, 120, 190, 0.32), transparent 36%),
+        linear-gradient(180deg, #020617 0%, #07111f 58%, #020617 100%);
     }
 
     .gold {
@@ -32,7 +32,7 @@
     .glass {
       background: rgba(2, 6, 23, 0.76);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(217, 164, 65, 0.28);
+      border: 1px solid rgba(217, 164, 65, 0.26);
     }
 
     input, textarea {
@@ -58,29 +58,36 @@
 <main class="max-w-6xl mx-auto px-5 py-8 md:py-12">
 
   <!-- Hero -->
-  <section class="grid md:grid-cols-2 gap-8 items-center">
+  <section class="grid md:grid-cols-2 gap-8 md:gap-12 items-center min-h-[78vh]">
+
+    <!-- 左側：不要重複海報，改成引導通知 -->
     <div>
       <p class="gold tracking-[0.25em] text-sm md:text-base mb-5">
-        真實事件背景｜國際驚悚劇情片
+        台南上映資訊通知
       </p>
 
       <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
-        病毒危機後，<br />
-        <span class="gold">真正的戰爭才開始。</span>
+        台南場次<br />
+        <span class="gold">即將公布</span>
       </h1>
 
-      <div class="space-y-2 text-xl md:text-2xl font-semibold text-slate-100 mb-8">
-        <p>一個家庭的逃亡</p>
-        <p>一場沒有槍聲的全球戰爭</p>
-      </div>
+      <p class="text-xl md:text-2xl font-bold leading-relaxed mb-6 text-slate-100">
+        想第一時間知道<br class="hidden md:block" />
+        《超限戰》台南上映場次嗎？
+      </p>
 
-      <div class="mb-8">
-        <div class="text-5xl md:text-7xl font-black gold tracking-wider">
-          《超限戰》
+      <p class="text-slate-300 leading-relaxed text-lg mb-8 max-w-xl">
+        留下聯絡方式，場次公布後，我們會通知您查詢與購票資訊。
+      </p>
+
+      <div class="glass rounded-2xl p-5 mb-8 max-w-xl">
+        <p class="gold font-bold mb-3">適合關心以下議題的朋友：</p>
+        <div class="grid grid-cols-2 gap-3 text-slate-100 font-semibold">
+          <div>台灣安全</div>
+          <div>資訊戰</div>
+          <div>疫情時代</div>
+          <div>國際局勢</div>
         </div>
-        <p class="text-2xl md:text-3xl font-bold mt-4">
-          台南場次即將公布
-        </p>
       </div>
 
       <a href="#notify"
@@ -88,20 +95,22 @@
         場次出來通知我
       </a>
 
-      <p class="text-slate-300 text-sm mt-4">
-        場次公布後，將依您留下的聯絡方式通知。資料僅用於本次台南場次通知。
+      <p class="text-slate-400 text-sm mt-4">
+        資料僅用於本次《超限戰》台南場次通知。
       </p>
     </div>
 
+    <!-- 右側：保留海報 -->
     <div>
-      <img src="fb-ad.png"
+      <img id="heroImg"
+           src="fb-ad.png"
            alt="《超限戰》台南上映宣傳圖"
            class="w-full rounded-2xl shadow-2xl border border-yellow-700/30" />
     </div>
   </section>
 
-  <!-- About -->
-  <section class="mt-14 md:mt-20 glass rounded-2xl p-6 md:p-10">
+  <!-- 看點區 -->
+  <section class="mt-8 md:mt-16 glass rounded-2xl p-6 md:p-10">
     <h2 class="text-2xl md:text-3xl font-black gold mb-5">
       進戲院，你會看到什麼？
     </h2>
@@ -110,7 +119,7 @@
       <div class="bg-white/5 rounded-xl p-5">
         <h3 class="text-xl font-bold mb-2">一個家庭的逃亡</h3>
         <p class="text-slate-300 leading-relaxed">
-          一位科學家與家人被捲入病毒危機，逃亡只是故事的開始。
+          一個家庭被捲入突如其來的危機，逃亡只是故事的開始。
         </p>
       </div>
 
@@ -124,17 +133,17 @@
       <div class="bg-white/5 rounded-xl p-5">
         <h3 class="text-xl font-bold mb-2">沒有槍聲的戰爭</h3>
         <p class="text-slate-300 leading-relaxed">
-          沒有飛彈、沒有傳統戰場，卻讓人重新思考那幾年我們經歷了什麼。
+          沒有傳統戰場，卻讓人重新思考那幾年我們經歷了什麼。
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Form -->
+  <!-- 表單區 -->
   <section id="notify" class="mt-12 md:mt-16 glass rounded-2xl p-6 md:p-10">
     <div class="text-center mb-8">
       <p class="gold tracking-[0.2em] text-sm mb-3">
-        台南場次通知
+        場次通知登記
       </p>
 
       <h2 class="text-3xl md:text-4xl font-black mb-4">
@@ -142,7 +151,7 @@
       </h2>
 
       <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto">
-        目前台南場次尚未完全公布。請留下聯絡方式，等戲院場次確認後，我們會通知您查詢與購票資訊。
+        請留下聯絡方式。等台南戲院場次確認後，我們會通知您查詢與購票資訊。
       </p>
     </div>
 
@@ -197,6 +206,8 @@
 </main>
 
 <script>
+  document.getElementById('heroImg').src = HERO_IMAGE;
+
   function getParam(name) {
     const url = new URL(window.location.href);
     return url.searchParams.get(name) || '';
@@ -240,7 +251,7 @@
     }
 
     try {
-      const res = await fetch(GAS_WEBAPP_URL, {
+      await fetch(GAS_WEBAPP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
