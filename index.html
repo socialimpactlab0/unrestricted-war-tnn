@@ -74,7 +74,6 @@
   <!-- Hero -->
   <section class="grid md:grid-cols-2 gap-8 md:gap-12 items-center min-h-[78vh]">
 
-    <!-- 左側 -->
     <div>
       <p class="gold tracking-[0.25em] text-sm md:text-base mb-5">
         台南上映優惠通知
@@ -120,7 +119,6 @@
       </p>
     </div>
 
-    <!-- 右側海報 -->
     <div>
       <img id="heroImg"
            src="fb-ad.png"
@@ -159,7 +157,7 @@
     </div>
   </section>
 
-  <!-- 官方頻道區 -->
+  <!-- 官方頻道 -->
   <section class="mt-12 glass rounded-2xl p-6 md:p-10">
     <div class="grid md:grid-cols-[1fr_auto] gap-6 items-center">
       <div>
@@ -298,7 +296,7 @@
     </div>
   </section>
 
-  <!-- 戲院頁面 -->
+  <!-- 戲院資訊 -->
   <section class="mt-12 glass rounded-2xl p-6 md:p-10 text-center">
     <p class="gold tracking-[0.2em] text-sm mb-3">
       戲院資訊
@@ -370,6 +368,46 @@
     box.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  function submitByJsonp(payload) {
+    return new Promise((resolve, reject) => {
+      const callbackName = 'couponCallback_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+
+      window[callbackName] = function(response) {
+        resolve(response);
+        cleanup();
+      };
+
+      function cleanup() {
+        delete window[callbackName];
+        if (script && script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      }
+
+      const params = new URLSearchParams();
+      params.set('action', 'submit');
+      params.set('callback', callbackName);
+
+      Object.keys(payload).forEach(key => {
+        params.set(key, payload[key] || '');
+      });
+
+      const script = document.createElement('script');
+      script.src = GAS_WEBAPP_URL + '?' + params.toString();
+      script.onerror = function() {
+        reject(new Error('JSONP request failed'));
+        cleanup();
+      };
+
+      document.body.appendChild(script);
+
+      setTimeout(() => {
+        reject(new Error('送出逾時，請稍後再試。'));
+        cleanup();
+      }, 15000);
+    });
+  }
+
   document.getElementById('notifyForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
@@ -396,42 +434,29 @@
     }
 
     try {
-      /*
-        注意：
-        no-cors 模式無法讀取 GAS 回傳內容。
-        若要在前台顯示真實優惠代碼，建議 GAS 改用 JSONP 或 iframe callback。
-        這裡先用前台臨時顯示本機產生代碼，正式代碼仍以 Google Sheet 為準。
-      */
+      const response = await submitByJsonp(payload);
 
-      const tempCouponCode = createLocalCouponCode(payload.phone);
+      if (response && response.success) {
+        if (response.duplicate) {
+          showMessage('此手機已領取過優惠券，以下為原優惠代碼。', true);
+        } else {
+          showMessage('優惠券領取成功。請截圖保存您的優惠代碼。', true);
+        }
 
-      await fetch(GAS_WEBAPP_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body: JSON.stringify(payload)
-      });
+        showCoupon(response.couponCode);
+        document.getElementById('notifyForm').reset();
 
-      showMessage('優惠券領取成功。請截圖保存您的優惠代碼。', true);
-      showCoupon(tempCouponCode);
-      document.getElementById('notifyForm').reset();
+      } else {
+        showMessage((response && response.message) ? response.message : '送出失敗，請稍後再試。', false);
+      }
 
     } catch (err) {
-      showMessage('送出失敗，請稍後再試。', false);
+      showMessage('送出失敗：' + err.message, false);
     }
 
     submitBtn.disabled = false;
     submitBtn.textContent = '送出並領取優惠券';
   });
-
-  function createLocalCouponCode(phone) {
-    const cleanPhone = String(phone || '').replace(/\D/g, '');
-    const last4 = cleanPhone.slice(-4) || '0000';
-    const random = Math.random().toString(36).substring(2, 6).toUpperCase();
-    return `UW-TNN-${last4}-${random}`;
-  }
 </script>
 
 </body>
