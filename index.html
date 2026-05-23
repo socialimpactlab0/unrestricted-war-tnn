@@ -39,6 +39,14 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(217, 164, 65, 0.26);
     }
+
+    .notice-box {
+      background:
+        radial-gradient(circle at top left, rgba(240, 200, 106, 0.22), transparent 45%),
+        rgba(217, 164, 65, 0.10);
+      border: 1px solid rgba(240, 200, 106, 0.62);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+    }
   </style>
 </head>
 
@@ -69,13 +77,16 @@
         《超限戰》以真實事件為背景，融合病毒危機、家庭逃亡與國際角力，帶你看見一場沒有槍聲的全球風暴。
       </p>
 
-      <div class="glass rounded-2xl p-5 mb-8 max-w-xl">
-        <p class="gold font-bold mb-3">電影優惠說明：</p>
-        <p class="text-slate-100 font-semibold leading-relaxed">
-          憑券於本片首輪戲院上映期間，至全台首輪戲院，可享早場票優惠購買入場。
+      <div class="notice-box rounded-2xl p-5 mb-6 max-w-xl">
+        <p class="gold font-black text-xl mb-3">
+          🎟 想索取電影優惠券？
         </p>
-        <p class="text-slate-400 text-sm mt-3">
-          實際優惠方式以戲院現場及活動公告為準。
+        <p class="text-slate-100 font-semibold leading-relaxed">
+          《超限戰》目前已在南台影城上映中。<br />
+          想看電影的朋友，可向林小姐索取優惠券。
+        </p>
+        <p class="text-yellow-200 font-black text-2xl mt-4">
+          林小姐手機：0937-615-510
         </p>
       </div>
 
@@ -88,12 +99,9 @@
           查看場次與購票資訊
         </a>
 
-        <a id="officialTopBtn"
-           href="#"
-           target="_blank"
-           rel="noopener"
+        <a href="tel:0937615510"
            class="inline-block border border-yellow-600/70 text-yellow-200 font-black text-lg px-8 py-4 rounded-xl text-center">
-          觀看官方中文頻道
+          洽林小姐索取優惠券
         </a>
       </div>
 
@@ -207,7 +215,6 @@
 <script>
   document.getElementById('heroImg').src = HERO_IMAGE;
   document.getElementById('theaterTopBtn').href = THEATER_URL;
-  document.getElementById('officialTopBtn').href = OFFICIAL_CHANNEL_URL;
   document.getElementById('officialMiddleBtn').href = OFFICIAL_CHANNEL_URL;
   document.getElementById('officialFooterLink').href = OFFICIAL_CHANNEL_URL;
   document.getElementById('theaterBtn').href = THEATER_URL;
