@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>《超限戰》台南電影優惠券領取</title>
-  <meta name="description" content="《超限戰》台南電影優惠券領取。留下聯絡方式，領取優惠券，台南場次公布後第一時間通知您。" />
+  <title>《超限戰》台南上映資訊</title>
+  <meta name="description" content="《超限戰》台南上映資訊。查看南台影城場次、購票資訊與電影官方中文頻道。" />
 
-  <meta property="og:title" content="《超限戰》台南電影優惠券領取" />
-  <meta property="og:description" content="留下資料，領取電影優惠券；台南場次公布後第一時間通知您。" />
+  <meta property="og:title" content="《超限戰》台南上映資訊" />
+  <meta property="og:description" content="《超限戰》台南上映中，查看南台影城場次與購票資訊。" />
   <meta property="og:image" content="fb-ad.png" />
   <meta property="og:type" content="website" />
 
@@ -39,31 +39,12 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(217, 164, 65, 0.26);
     }
-
-    input, textarea {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #d9a441;
-      box-shadow: 0 0 0 2px rgba(217,164,65,0.25);
-    }
-
-    .coupon-box {
-      background:
-        radial-gradient(circle at top, rgba(217,164,65,0.18), transparent 42%),
-        rgba(255,255,255,0.06);
-      border: 1px solid rgba(217,164,65,0.45);
-    }
   </style>
 </head>
 
 <body class="text-white min-h-screen">
 
 <script>
-  const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxWRGqapwTZrgpxtFPX-CbQKtOXkX_3JdX_mxDL1B30b2a4nUzs6csiBujljz9E550zxQ/exec';
   const HERO_IMAGE = 'fb-ad.png';
   const OFFICIAL_CHANNEL_URL = 'https://www.ganjingworld.com/s/b2ggGwZXGa';
   const THEATER_URL = 'https://www.nt-movie.com.tw/movie_detail.php?item=1898&class=B';
@@ -76,21 +57,20 @@
 
     <div>
       <p class="gold tracking-[0.25em] text-sm md:text-base mb-5">
-        台南上映優惠通知
+        台南現正上映中
       </p>
 
       <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
-        領取<br />
-        <span class="gold">電影優惠券</span>
+        週末，來看一部<br />
+        <span class="gold">有意思的電影</span>
       </h1>
 
       <p class="text-xl md:text-2xl font-bold leading-relaxed mb-6 text-slate-100">
-        留下聯絡方式，取得《超限戰》電影優惠券。<br class="hidden md:block" />
-        台南場次公布後，也會第一時間通知您。
+        《超限戰》以真實事件為背景，融合病毒危機、家庭逃亡與國際角力，帶你看見一場沒有槍聲的全球風暴。
       </p>
 
       <div class="glass rounded-2xl p-5 mb-8 max-w-xl">
-        <p class="gold font-bold mb-3">優惠券內容：</p>
+        <p class="gold font-bold mb-3">電影優惠說明：</p>
         <p class="text-slate-100 font-semibold leading-relaxed">
           憑券於本片首輪戲院上映期間，至全台首輪戲院，可享早場票優惠購買入場。
         </p>
@@ -100,9 +80,12 @@
       </div>
 
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="#notify"
+        <a id="theaterTopBtn"
+           href="#"
+           target="_blank"
+           rel="noopener"
            class="inline-block gold-bg text-black font-black text-lg px-8 py-4 rounded-xl text-center shadow-lg">
-          留下資料，領取優惠券
+          查看場次與購票資訊
         </a>
 
         <a id="officialTopBtn"
@@ -115,7 +98,7 @@
       </div>
 
       <p class="text-slate-400 text-sm mt-4">
-        資料僅用於本次《超限戰》台南場次與優惠券通知。
+        不需填寫資料，可直接查看戲院場次與購票資訊。
       </p>
     </div>
 
@@ -182,87 +165,6 @@
     </div>
   </section>
 
-  <!-- 表單區 -->
-  <section id="notify" class="mt-12 md:mt-16 glass rounded-2xl p-6 md:p-10">
-    <div class="text-center mb-8">
-      <p class="gold tracking-[0.2em] text-sm mb-3">
-        優惠券領取
-      </p>
-
-      <h2 class="text-3xl md:text-4xl font-black mb-4">
-        領取《超限戰》電影優惠券
-      </h2>
-
-      <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto">
-        請留下聯絡方式，系統將為您產生專屬優惠代碼。台南場次公布後，也會第一時間通知您查詢與購票資訊。
-      </p>
-    </div>
-
-    <form id="notifyForm" class="max-w-2xl mx-auto space-y-5">
-      <div>
-        <label class="block mb-2 font-bold">姓名 <span class="text-red-300">*</span></label>
-        <input id="name" name="name" required
-               class="w-full rounded-xl px-4 py-3 text-white"
-               placeholder="請輸入姓名" />
-      </div>
-
-      <div>
-        <label class="block mb-2 font-bold">手機 <span class="text-red-300">*</span></label>
-        <input id="phone" name="phone" required
-               class="w-full rounded-xl px-4 py-3 text-white"
-               placeholder="請輸入手機號碼" />
-      </div>
-
-      <div>
-        <label class="block mb-2 font-bold">Email</label>
-        <input id="email" name="email" type="email"
-               class="w-full rounded-xl px-4 py-3 text-white"
-               placeholder="可選填" />
-      </div>
-
-      <div>
-        <label class="block mb-2 font-bold">備註</label>
-        <textarea id="note" name="note" rows="3"
-                  class="w-full rounded-xl px-4 py-3 text-white"
-                  placeholder="例如：想知道晚上場、假日場、團體票等"></textarea>
-      </div>
-
-      <button id="submitBtn"
-              type="submit"
-              class="w-full gold-bg text-black font-black text-xl px-8 py-4 rounded-xl shadow-lg">
-        送出並領取優惠券
-      </button>
-
-      <p class="text-slate-400 text-sm text-center">
-        資料僅用於《超限戰》台南場次與優惠券通知，不作其他用途。
-      </p>
-
-      <div id="message" class="hidden text-center rounded-xl p-4 font-bold"></div>
-
-      <div id="couponResult" class="hidden coupon-box rounded-2xl p-6 text-center">
-        <p class="gold tracking-[0.2em] text-sm mb-3">
-          優惠券領取成功
-        </p>
-
-        <h3 class="text-2xl md:text-3xl font-black mb-4">
-          您的優惠代碼
-        </h3>
-
-        <div id="couponCode"
-             class="bg-black/40 border border-yellow-600/50 rounded-xl px-5 py-4 text-2xl md:text-3xl font-black tracking-widest gold mb-4">
-        </div>
-
-        <p class="text-slate-200 leading-relaxed">
-          請截圖保存。憑此優惠代碼可享電影優惠券使用資格。
-        </p>
-
-        <p class="text-slate-400 text-sm mt-3">
-          使用方式與優惠內容，以活動公告及戲院現場規定為準。
-        </p>
-      </div>
-    </form>
-  </section>
-
   <!-- 優惠券說明 -->
   <section class="mt-12 glass rounded-2xl p-6 md:p-10">
     <h2 class="text-2xl md:text-3xl font-black gold mb-5">
@@ -287,7 +189,7 @@
       <div>
         <h3 class="font-black text-white mb-2">注意事項</h3>
         <p>
-          本券限一人使用一次，逾期自動作廢。
+          優惠內容、使用方式與是否適用，以活動公告及戲院現場規定為準。
         </p>
         <p class="mt-2">
           敬老票與學生票皆為優惠票種，須於現場臨櫃購票以備驗證。敬老票須憑 65 歲以上身分證明，學生票須憑有效學生證。
@@ -307,20 +209,20 @@
     </h2>
 
     <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto mb-6">
-      台南場次與上映資訊，以戲院官方公告為準。可前往南台影城頁面查詢最新資訊。
+      台南場次與上映資訊，以戲院官方公告為準。可前往南台影城頁面查詢最新場次與購票資訊。
     </p>
 
     <a id="theaterBtn"
        href="#"
        target="_blank"
        rel="noopener"
-       class="inline-block border border-yellow-600/70 text-yellow-200 font-black text-lg px-8 py-4 rounded-xl text-center">
+       class="inline-block gold-bg text-black font-black text-lg px-8 py-4 rounded-xl text-center shadow-lg">
       查看南台影城資訊
     </a>
   </section>
 
   <footer class="text-center text-slate-500 text-sm mt-10 pb-8">
-    <p>《超限戰》台南優惠券領取與場次通知頁</p>
+    <p>《超限戰》台南上映資訊頁</p>
     <p class="mt-1">場次與上映資訊以戲院公告為準。</p>
     <p class="mt-2">
       <a id="officialFooterLink"
@@ -337,126 +239,11 @@
 
 <script>
   document.getElementById('heroImg').src = HERO_IMAGE;
+  document.getElementById('theaterTopBtn').href = THEATER_URL;
   document.getElementById('officialTopBtn').href = OFFICIAL_CHANNEL_URL;
   document.getElementById('officialMiddleBtn').href = OFFICIAL_CHANNEL_URL;
   document.getElementById('officialFooterLink').href = OFFICIAL_CHANNEL_URL;
   document.getElementById('theaterBtn').href = THEATER_URL;
-
-  function getParam(name) {
-    const url = new URL(window.location.href);
-    return url.searchParams.get(name) || '';
-  }
-
-  function showMessage(text, success) {
-    const el = document.getElementById('message');
-    el.classList.remove('hidden');
-    el.textContent = text;
-
-    if (success) {
-      el.className = 'text-center rounded-xl p-4 font-bold bg-green-500/20 text-green-200 border border-green-500/30';
-    } else {
-      el.className = 'text-center rounded-xl p-4 font-bold bg-red-500/20 text-red-200 border border-red-500/30';
-    }
-  }
-
-  function showCoupon(code) {
-    const box = document.getElementById('couponResult');
-    const codeEl = document.getElementById('couponCode');
-
-    codeEl.textContent = code || '已完成登記';
-    box.classList.remove('hidden');
-    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function submitByJsonp(payload) {
-    return new Promise((resolve, reject) => {
-      const callbackName = 'couponCallback_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
-
-      window[callbackName] = function(response) {
-        resolve(response);
-        cleanup();
-      };
-
-      function cleanup() {
-        delete window[callbackName];
-        if (script && script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-      }
-
-      const params = new URLSearchParams();
-      params.set('action', 'submit');
-      params.set('callback', callbackName);
-
-      Object.keys(payload).forEach(key => {
-        params.set(key, payload[key] || '');
-      });
-
-      const script = document.createElement('script');
-      script.src = GAS_WEBAPP_URL + '?' + params.toString();
-      script.onerror = function() {
-        reject(new Error('JSONP request failed'));
-        cleanup();
-      };
-
-      document.body.appendChild(script);
-
-      setTimeout(() => {
-        reject(new Error('送出逾時，請稍後再試。'));
-        cleanup();
-      }, 15000);
-    });
-  }
-
-  document.getElementById('notifyForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.disabled = true;
-    submitBtn.textContent = '送出中...';
-
-    const payload = {
-      name: document.getElementById('name').value.trim(),
-      phone: document.getElementById('phone').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      note: document.getElementById('note').value.trim(),
-      source: getParam('src') || 'landing_page',
-      utm_source: getParam('utm_source'),
-      utm_campaign: getParam('utm_campaign'),
-      fbclid: getParam('fbclid')
-    };
-
-    if (!payload.name || !payload.phone) {
-      showMessage('請填寫姓名與手機。', false);
-      submitBtn.disabled = false;
-      submitBtn.textContent = '送出並領取優惠券';
-      return;
-    }
-
-    try {
-      const response = await submitByJsonp(payload);
-
-      if (response && response.success) {
-        if (response.duplicate) {
-          showMessage('此手機已領取過優惠券，以下為原優惠代碼。', true);
-        } else {
-          showMessage('優惠券領取成功。請截圖保存您的優惠代碼。', true);
-        }
-
-        showCoupon(response.couponCode);
-        document.getElementById('notifyForm').reset();
-
-      } else {
-        showMessage((response && response.message) ? response.message : '送出失敗，請稍後再試。', false);
-      }
-
-    } catch (err) {
-      showMessage('送出失敗：' + err.message, false);
-    }
-
-    submitBtn.disabled = false;
-    submitBtn.textContent = '送出並領取優惠券';
-  });
 </script>
 
 </body>
